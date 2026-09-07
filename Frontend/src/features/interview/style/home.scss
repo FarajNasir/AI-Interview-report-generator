@@ -1,0 +1,375 @@
+.home {
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3.5rem;
+  box-sizing: border-box;
+
+  // Hero Intro
+  &::before {
+    content: "AI Interview Strategist \A Tailored Preparation & Skill Gap Analysis";
+    white-space: pre-line;
+    display: block;
+    text-align: center;
+    font-size: 2.25rem;
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -0.03em;
+    background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #818cf8 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    max-width: 680px;
+    margin-bottom: -1rem;
+  }
+
+  // Generator Card
+  .interview-input-group {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 2rem;
+    padding: 2.25rem;
+    background: rgba(16, 24, 40, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    border-radius: 24px;
+    box-shadow: 
+      0 25px 60px -12px rgba(0, 0, 0, 0.6),
+      0 0 0 1px rgba(255, 255, 255, 0.05),
+      0 0 50px -15px rgba(99, 102, 241, 0.15);
+    position: relative;
+    overflow: hidden;
+
+    // Glowing border accent at top
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 10%;
+      right: 10%;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(99, 102, 241, 0.7), rgba(139, 92, 246, 0.7), transparent);
+    }
+  }
+
+  .left,
+  .right {
+    display: flex;
+    flex-direction: column;
+    gap: 1.25rem;
+  }
+
+  .left {
+    min-height: 26rem;
+    position: relative;
+  }
+
+  .right {
+    justify-content: space-between;
+  }
+
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #cbd5e1;
+      letter-spacing: 0.01em;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+  }
+
+  textarea {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.09);
+    outline: none;
+    padding: 1.15rem 1.25rem;
+    border-radius: 14px;
+    background-color: rgba(11, 17, 30, 0.75);
+    color: #f8fafc;
+    font-family: inherit;
+    font-size: 0.925rem;
+    line-height: 1.6;
+    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.2) inset;
+    resize: vertical;
+
+    &::placeholder {
+      color: #64748b;
+      font-size: 0.9rem;
+    }
+
+    &:hover {
+      border-color: rgba(255, 255, 255, 0.16);
+      background-color: rgba(13, 20, 36, 0.85);
+    }
+
+    &:focus {
+      border-color: #6366f1;
+      background-color: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 0 0 3.5px rgba(99, 102, 241, 0.2), 0 1px 3px 0 rgba(0, 0, 0, 0.25) inset;
+    }
+  }
+
+  // Left job description textarea expands nicely
+  .left textarea {
+    flex: 1;
+    min-height: 22rem;
+  }
+
+  // Right self description textarea
+  .right textarea {
+    min-height: 8.5rem;
+  }
+
+  // Upload Resume Dropzone
+  .file-label {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.6rem;
+    padding: 1.75rem 1.25rem;
+    border: 2px dashed rgba(99, 102, 241, 0.35);
+    border-radius: 16px;
+    background: rgba(99, 102, 241, 0.04);
+    color: #cbd5e1;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-align: center;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+
+    &::after {
+      content: 'Upload PDF format resume';
+      font-size: 0.775rem;
+      font-weight: 400;
+      color: #94a3b8;
+    }
+
+    .upload-icon {
+      color: #818cf8;
+      filter: drop-shadow(0 2px 8px rgba(99, 102, 241, 0.4));
+      transition: transform 0.2s ease, color 0.2s ease;
+    }
+
+    &:hover {
+      border-color: #818cf8;
+      background: rgba(99, 102, 241, 0.09);
+      color: #ffffff;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px -4px rgba(99, 102, 241, 0.2);
+
+      .upload-icon {
+        transform: scale(1.1);
+        color: #a5b4fc;
+      }
+    }
+  }
+
+  // Generate Button
+  .generate-btn {
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 1rem 1.75rem;
+    border-radius: 14px;
+    background: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+    color: #ffffff;
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+    cursor: pointer;
+    box-shadow: 
+      0 4px 18px -1px rgba(99, 102, 241, 0.5),
+      0 0 0 1px rgba(255, 255, 255, 0.15) inset;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+    &:hover {
+      background: linear-gradient(135deg, #6d70f7 0%, #5850ec 100%);
+      transform: translateY(-2px);
+      box-shadow: 
+        0 8px 25px -2px rgba(99, 102, 241, 0.6),
+        0 0 0 1px rgba(255, 255, 255, 0.25) inset;
+    }
+
+    &:active {
+      transform: translateY(0.5px) scale(0.99);
+      box-shadow: 0 2px 10px -1px rgba(99, 102, 241, 0.4);
+    }
+  }
+
+  // Previous Reports Section
+  .previous-reports {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75rem;
+
+    h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #f8fafc;
+      letter-spacing: -0.02em;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      &::before {
+        content: '';
+        display: inline-block;
+        width: 4px;
+        height: 1.3rem;
+        background: linear-gradient(to bottom, #6366f1, #8b5cf6);
+        border-radius: 2px;
+      }
+    }
+
+    // Empty state
+    > p {
+      background: rgba(16, 24, 40, 0.5);
+      border: 1px dashed rgba(255, 255, 255, 0.1);
+      border-radius: 16px;
+      padding: 3rem 2rem;
+      text-align: center;
+      color: #94a3b8;
+      font-size: 0.95rem;
+    }
+
+    .reports-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .report-card {
+      background: rgba(16, 24, 40, 0.7);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 18px;
+      padding: 1.6rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 1.25rem;
+      cursor: pointer;
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+      position: relative;
+      overflow: hidden;
+
+      &:hover {
+        transform: translateY(-3px);
+        border-color: rgba(99, 102, 241, 0.4);
+        background: rgba(20, 30, 52, 0.85);
+        box-shadow: 
+          0 16px 36px -8px rgba(0, 0, 0, 0.5),
+          0 0 25px -5px rgba(99, 102, 241, 0.2);
+
+        button {
+          background: rgba(99, 102, 241, 0.25);
+          color: #ffffff;
+          border-color: rgba(99, 102, 241, 0.55);
+        }
+      }
+
+      .report-info {
+        display: flex;
+        flex-direction: column;
+        gap: 0.6rem;
+
+        h3 {
+          font-size: 1.15rem;
+          font-weight: 700;
+          color: #f8fafc;
+          letter-spacing: -0.015em;
+          line-height: 1.4;
+          margin: 0;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+
+          .title-icon {
+            color: #818cf8;
+          }
+        }
+
+        p {
+          font-size: 0.875rem;
+          color: #94a3b8;
+          display: flex;
+          align-items: center;
+          gap: 0.4rem;
+
+          strong {
+            color: #34d399;
+            font-weight: 700;
+            background: rgba(16, 185, 129, 0.12);
+            padding: 0.15rem 0.5rem;
+            border-radius: 6px;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+          }
+        }
+      }
+
+      button {
+        width: 100%;
+        background: rgba(99, 102, 241, 0.1);
+        border: 1px solid rgba(99, 102, 241, 0.25);
+        color: #c7d2fe;
+        font-family: inherit;
+        font-size: 0.875rem;
+        font-weight: 600;
+        padding: 0.65rem 1rem;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.4rem;
+      }
+    }
+  }
+
+  // Responsive Breakpoints
+  @media (max-width: 900px) {
+    padding: 2rem 1rem 4rem;
+    gap: 2.5rem;
+
+    &::before {
+      font-size: 1.75rem;
+    }
+
+    .interview-input-group {
+      grid-template-columns: 1fr;
+      padding: 1.5rem;
+      gap: 1.5rem;
+    }
+
+    .left {
+      min-height: 16rem;
+
+      textarea {
+        min-height: 14rem;
+      }
+    }
+
+    .previous-reports .reports-list {
+      grid-template-columns: 1fr;
+    }
+  }
+}
